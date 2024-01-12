@@ -40,4 +40,5 @@ extern char *line;
 extern char *line;
 extern instruction_t push;
 extern instruction_t pall;
+extern FILE *fp;
 #endif

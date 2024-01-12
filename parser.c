@@ -9,8 +9,9 @@ char *line;
  * @token: instruction
  * @linenum: line number
  */
-void call_ins(char *token, int linenum, stack_t **stack)
+void call_ins(char *token, int linenum, stack_t **stack, char **str)
 {
+
 	instruction_t instructions[] = {push, pall};
 	int len_i = sizeof(instructions) / sizeof(instruction_t);
 	short int is_ins = 0;
@@ -20,16 +21,20 @@ void call_ins(char *token, int linenum, stack_t **stack)
 	{
 		if (strcmp(instructions[i].opcode, token) == 0)
 		{
+			free(*str);
 			instructions[i].f(stack, linenum);
 			is_ins = 1;
 			break;
 		}
 	}
+	if (!*str)
+		free(*str);
 
 	if (!is_ins)
 	{
 		fprintf(stderr, "L%d: unknown\
  instruction %s\n", linenum, token);
+
 		ext(stack);
 	}
 
@@ -58,12 +63,13 @@ void parser(FILE *fp)
 		}
 
 		token = strtok(str, " \n\t");
-
 		if (!token)
+		{
+			free(str);
 			continue;
+		}
 
-		call_ins(token, linenum, &stack);
-		free(str);
+		call_ins(token, linenum, &stack, &str);
 		linenum++;
 	}
 
