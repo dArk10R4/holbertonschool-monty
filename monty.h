@@ -35,9 +35,7 @@ void parser(FILE *fp);
 void ext(stack_t **stack);
 void push_f(stack_t **stack, unsigned int line_number);
 
-char *line;
-#ifndef INS
-#define INS
-instruction_t push = {"push", push_f};
-#endif
+extern char *line;
+extern char *line;
+extern instruction_t push;
 #endif

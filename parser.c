@@ -3,6 +3,7 @@
 #include <string.h>
 #include "monty.h"
 
+char *line;
 /**
  * call_ins - calls instruction
  * @token: instruction
@@ -46,11 +47,20 @@ void parser(FILE *fp)
 	ssize_t read;
 	char *token;
 	stack_t *stack;
-
+	char *str;
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		token = strtok(line, " \n\t");
+		printf("line is %s\n", line);
+		str = strdup(line);
+		if (!str)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			ext(&stack);
+		}
+
+		token = strtok(str, " \n\t");
+		printf("line is %s\n", line);
 		if (!token)
 			continue;
 

@@ -11,12 +11,12 @@ void push_s(stack_t **stack, int n)
 
 	if (!new)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		ext(stack);
 	}
-
+printf("line is %d\n", n);
 	new->n = n;
-
+	printf("salam%p\n", *stack);
 	if (!(*stack))
 	{
 		*stack = new;
@@ -31,11 +31,13 @@ void push_s(stack_t **stack, int n)
 void push_f(stack_t **stack, unsigned int line_number)
 {
 	char *token;
-	const char *format = "L%d: usage: push integer";
+	const char *format = "L%d: usage: push integer\n";
+	const char s[1] = " ";
 
-	token = strtok(line, " \n\t");
-	token = strtok(NULL, " \n\t");
+	token = strtok(line, s);
+	token = strtok(NULL, s);
 
+	printf("%stoken is %s\n", line, token);
 	if (!token)
 	{
 		fprintf(stderr, format, line_number);
@@ -44,3 +46,5 @@ void push_f(stack_t **stack, unsigned int line_number)
 
 	push_s(stack, atoi(token));
 }
+
+instruction_t push = {"push", push_f};
