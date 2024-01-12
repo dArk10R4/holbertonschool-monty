@@ -11,7 +11,7 @@ char *line;
  */
 void call_ins(char *token, int linenum, stack_t **stack)
 {
-	instruction_t instructions[] = {push};
+	instruction_t instructions[] = {push, pall};
 	int len_i = sizeof(instructions) / sizeof(instruction_t);
 	short int is_ins = 0;
 	int i = 0;
@@ -24,7 +24,6 @@ void call_ins(char *token, int linenum, stack_t **stack)
 			is_ins = 1;
 			break;
 		}
-		i++;
 	}
 
 	if (!is_ins)
@@ -46,12 +45,11 @@ void parser(FILE *fp)
 	size_t len = 0;
 	ssize_t read;
 	char *token;
-	stack_t *stack;
+	stack_t *stack = NULL;
 	char *str;
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		printf("line is %s\n", line);
 		str = strdup(line);
 		if (!str)
 		{
@@ -60,7 +58,7 @@ void parser(FILE *fp)
 		}
 
 		token = strtok(str, " \n\t");
-		printf("line is %s\n", line);
+
 		if (!token)
 			continue;
 

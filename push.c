@@ -14,9 +14,8 @@ void push_s(stack_t **stack, int n)
 		fprintf(stderr, "Error: malloc failed\n");
 		ext(stack);
 	}
-printf("line is %d\n", n);
 	new->n = n;
-	printf("salam%p\n", *stack);
+
 	if (!(*stack))
 	{
 		*stack = new;
@@ -37,7 +36,7 @@ void push_f(stack_t **stack, unsigned int line_number)
 	token = strtok(line, s);
 	token = strtok(NULL, s);
 
-	printf("%stoken is %s\n", line, token);
+
 	if (!token)
 	{
 		fprintf(stderr, format, line_number);

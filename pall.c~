@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include "monty.h"
+
+/**
+ * pall_s - prints stack
+ * @stack: stack
+ */
+void pall_s(stack_t **stack)
+{
+	stack_t *temp;
+
+	temp = (*stack);
+
+	stack_t nese, basqa, a1, a2;
+	
+	nese.n = 5;
+	nese.next = &basqa;
+	basqa.n=6;
+	a1.n = 7;
+	a2.n = 8;
+	basqa.next = &a1;
+	a1.next = &a2;
+	a2.next = NULL;
+	temp = &nese;
+
+	while(temp)
+	{
+		printf("%d\n", temp->n);
+		temp = temp->next;
+	}
+
+}
+
+void pall_f(stack_t **stack, unsigned int line_number)
+{
+	pall_s(stack);
+}
+
+instruction_t pall = {"pall", pall_f};
