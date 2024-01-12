@@ -63,6 +63,7 @@ void parser(FILE *fp)
 			continue;
 
 		call_ins(token, linenum, &stack);
+		free(str);
 		linenum++;
 	}
 
