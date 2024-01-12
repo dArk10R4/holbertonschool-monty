@@ -23,6 +23,7 @@ void pall_s(stack_t **stack)
 void pall_f(stack_t **stack, unsigned int line_number)
 {
 	pall_s(stack);
+	(void)line_number;
 }
 
 instruction_t pall = {"pall", pall_f};

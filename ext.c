@@ -8,6 +8,15 @@
  */
 void free_stack(stack_t **stack)
 {
+	stack_t *temp, *temp2;
+	temp = (*stack);
+
+	while(temp)
+	{
+		temp2 = temp;
+		temp = temp->next;
+		free(temp2);
+	}
 }
 
 /**

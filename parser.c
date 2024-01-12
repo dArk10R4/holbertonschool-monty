@@ -68,4 +68,6 @@ void parser(FILE *fp)
 
 	if (line)
 		free(line);
+
+	free_stack(&stack);
 }

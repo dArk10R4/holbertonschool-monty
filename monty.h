@@ -34,6 +34,7 @@ typedef struct instruction_s
 void parser(FILE *fp);
 void ext(stack_t **stack);
 void push_f(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t **stack);
 
 extern char *line;
 extern char *line;
