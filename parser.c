@@ -57,7 +57,7 @@ void parser(FILE *fp)
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		fprintf(stderr, "line : %s", line);
+		fprintf(stderr, "line %d : %s",linenum, line);
 		str = strdup(line);
 		if (!str)
 		{
