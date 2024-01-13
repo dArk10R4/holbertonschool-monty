@@ -36,9 +36,9 @@ void call_ins(char *token, int linenum, stack_t **stack, char **str)
 	}
 
 
-	if (*str)
+/*	if (*str)
 		free(*str);
-
+*/
 
 }
 
