@@ -36,6 +36,7 @@ void ext(stack_t **stack);
 void push_f(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
 void pall_f(stack_t **stack, unsigned int line_number);
+void pint_f(stack_t **stack, unsigned int line_number);
 
 #ifdef LINE
 char *line = NULL;
