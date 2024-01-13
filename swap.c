@@ -1,5 +1,5 @@
 #include <stdio.h>
-#inlcude "monty.h"
+#include "monty.h"
 
 /**
  * swap_s - swaps
