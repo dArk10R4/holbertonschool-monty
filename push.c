@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include "monty.h"
@@ -26,7 +27,20 @@ void push_s(stack_t **stack, int n)
 	new->next = *stack;
 	(*stack)->prev = new;
 	*stack = new;
- }
+}
+
+int isnumber(char *s)
+{
+	short int is_number = 0;
+
+	while (*s)
+	{
+		is_number = isdigit(*s);
+		s++;
+	}
+
+	return (is_number);
+}
 
 void push_f(stack_t **stack, unsigned int line_number)
 {
@@ -38,7 +52,7 @@ void push_f(stack_t **stack, unsigned int line_number)
 	token = strtok(NULL, s);
 
 
-	if (!token)
+	if (!token || !isnumber(token))
 	{
 		fprintf(stderr, format, line_number);
 		ext(stack);
