@@ -17,7 +17,7 @@ void add_s(stack_t **stack)
  */
 void add_f(stack_t **stack, unsigned int line_number)
 {
-	const char *format = "L%d: can't add, stack too short";
+	const char *format = "L%d: can't add, stack too short\n";
 
 	if (*stack && (*stack)->next)
 	{
