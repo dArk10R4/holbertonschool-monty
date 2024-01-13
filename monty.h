@@ -35,10 +35,16 @@ void parser(FILE *fp);
 void ext(stack_t **stack);
 void push_f(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t **stack);
-
+#ifdef LINE
+char *line = NULL;
+#else
 extern char *line;
-extern char *line;
+#endif
 extern instruction_t push;
 extern instruction_t pall;
+#ifdef FP
+FILE *fp = NULL;
+#else
 extern FILE *fp;
+#endif
 #endif

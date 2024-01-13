@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#define FP
 #include "monty.h"
 
-FILE *fp = NULL;
+
 /**
  * main - monty
  * @argc: argument count

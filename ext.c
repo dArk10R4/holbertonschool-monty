@@ -3,15 +3,16 @@
 #include "monty.h"
 
 /**
- * free_stack
+ * free_stack - frees stack
  * @stack: stack
  */
 void free_stack(stack_t **stack)
 {
 	stack_t *temp, *temp2;
+
 	temp = (*stack);
 
-	while(temp)
+	while (temp)
 	{
 		temp2 = temp;
 		temp = temp->next;
@@ -21,8 +22,7 @@ void free_stack(stack_t **stack)
 
 /**
  * ext - frees and exit
- * stack - stack
- * message - message
+ * @stack:stack
  */
 void ext(stack_t **stack)
 {
