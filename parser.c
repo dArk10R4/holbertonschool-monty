@@ -57,6 +57,7 @@ void parser(FILE *fp)
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
+		fprintf(stderr, "line : %s", line);
 		str = strdup(line);
 		if (!str)
 		{
@@ -79,4 +80,5 @@ void parser(FILE *fp)
 		free(line);
 
 	free_stack(&stack);
+	exit(EXIT_FAILURE);
 }

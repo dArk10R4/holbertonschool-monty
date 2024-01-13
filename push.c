@@ -55,7 +55,7 @@ void push_f(stack_t **stack, unsigned int line_number)
 	token = strtok(NULL, s);
 
 
-	if (!token || !isNumber(token))
+	if (!token /*|| !isNumber(token)*/)
 	{
 		fprintf(stderr, format, line_number);
 		ext(stack);
