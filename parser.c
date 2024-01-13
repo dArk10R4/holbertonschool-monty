@@ -14,7 +14,10 @@
  */
 void call_ins(char *token, int linenum, stack_t **stack, char **str)
 {
-	instruction_t instructions[] = {push, pall};
+	instruction_t instructions[] = {
+		{ "push", push_f },
+		{ "pall", pall_f }
+	};
 	int len_i = sizeof(instructions) / sizeof(instruction_t);
 	short int is_ins = 0;
 	int i = 0;

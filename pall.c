@@ -12,7 +12,7 @@ void pall_s(stack_t **stack)
 
 	temp = (*stack);
 
-	while(temp)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
@@ -20,10 +20,13 @@ void pall_s(stack_t **stack)
 
 }
 
+/**
+ * pall_f - function of pall
+ * @stack: stack
+ * @line_number: line number
+ */
 void pall_f(stack_t **stack, unsigned int line_number)
 {
 	pall_s(stack);
 	(void)line_number;
 }
-
-instruction_t pall = {"pall", pall_f};

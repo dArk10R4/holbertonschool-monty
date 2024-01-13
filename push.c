@@ -4,6 +4,11 @@
 #include <string.h>
 #include "monty.h"
 
+/**
+ * push_s - pushes to stack
+ * @stack: stack
+ * @n: number to push stack
+ */
 void push_s(stack_t **stack, int n)
 {
 	stack_t *new;
@@ -29,22 +34,35 @@ void push_s(stack_t **stack, int n)
 	*stack = new;
 }
 
-short int isNumber(const char *str) {
+/**
+ * isNumber - check string is number
+ * @str: string
+ *
+ * Return: 1 or 0
+ */
+short int isNumber(const char *str)
+{
 	if (*str == '\0')
-		return 0;
+		return (0);
 
 	if (*str == '+' || *str == '-')
 		str++;
 
-	while (*str != '\0') {
+	while (*str != '\0')
+	{
 		if (!isdigit(*str))
 			return (0);
 		str++;
-    }
+	}
 
-    return 1;
+	return (1);
 }
 
+/**
+ * push_f - push function
+ * @stack: stack
+ * @line_number: line number
+ */
 void push_f(stack_t **stack, unsigned int line_number)
 {
 	char *token;
@@ -62,5 +80,3 @@ void push_f(stack_t **stack, unsigned int line_number)
 
 	push_s(stack, atoi(token));
 }
-
-instruction_t push = {"push", push_f};
