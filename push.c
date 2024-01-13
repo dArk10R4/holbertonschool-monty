@@ -29,30 +29,33 @@ void push_s(stack_t **stack, int n)
 	*stack = new;
 }
 
-int isnumber(char *s)
-{
-	short int is_number = 0;
+short int isNumber(const char *str) {
+	if (*str == '\0')
+		return 0;
 
-	while (*s)
-	{
-		is_number = isdigit(*s);
-		s++;
-	}
+	if (*str == '+' || *str == '-')
+		str++;
 
-	return (is_number);
+	while (*str != '\0') {
+		if (!isdigit(*str))
+			return (0);
+		str++;
+    }
+
+    return 1;
 }
 
 void push_f(stack_t **stack, unsigned int line_number)
 {
 	char *token;
 	const char *format = "L%d: usage: push integer\n";
-	const char s[1] = " ";
+	const char s[3] = " \n\t";
 
 	token = strtok(line, s);
 	token = strtok(NULL, s);
 
 
-	if (!token || !isnumber(token))
+	if (!token || !isNumber(token))
 	{
 		fprintf(stderr, format, line_number);
 		ext(stack);
