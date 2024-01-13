@@ -57,7 +57,6 @@ void parser(FILE *fp)
 
 	while ((read = getline(&line, &len, fp)) != -1)
 	{
-		fprintf(stderr, "line %d : %s",linenum, line);
 		str = strdup(line);
 		if (!str)
 		{
@@ -68,6 +67,7 @@ void parser(FILE *fp)
 		token = strtok(str, " \n\t");
 		if (!token)
 		{
+			linenum++;
 			free(str);
 			continue;
 		}
