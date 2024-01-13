@@ -8,7 +8,7 @@
  */
 void pint_f(stack_t **stack, unsigned int line_number)
 {
-	const char *format = "L%d: can't pint, stack empty";
+	const char *format = "L%d: can't pint, stack empty\n";
 
 	if (!*stack)
 	{
