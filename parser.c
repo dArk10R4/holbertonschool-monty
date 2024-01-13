@@ -19,7 +19,8 @@ void call_ins(char *token, int linenum, stack_t **stack, char **str)
 		{ "pall", pall_f },
 		{ "pint", pint_f },
 		{ "pop", pop_f },
-		{ "swap", swap_f }
+		{ "swap", swap_f },
+		{ "add", add_f }
 	};
 	int len_i = sizeof(instructions) / sizeof(instruction_t);
 	short int is_ins = 0;
