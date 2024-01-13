@@ -47,21 +47,22 @@ short int isNumber(const char *str) {
 
 void push_f(stack_t **stack, unsigned int line_number)
 {
-	char *token;
+/*	char *token;
 	const char *format = "L%d: usage: push integer\n";
 	const char s[3] = " \n\t";
 
 	token = strtok(line, s);
-	token = strtok(NULL, s);
+	token = strtok(NULL, s);*/
+	(void)stack, (void)line_number;
 
-
-	if (!token /*|| !isNumber(token)*/)
+/*
+	if (!token || !isNumber(token))
 	{
 		fprintf(stderr, format, line_number);
 		ext(stack);
 	}
 
-	push_s(stack, atoi(token));
+	push_s(stack, atoi(token));*/
 }
 
 instruction_t push = {"push", push_f};
