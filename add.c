@@ -13,7 +13,7 @@ void add_s(stack_t **stack)
 /**
  * add_f - add function
  * @stack: stack
- * line_number: line number
+ * @line_number: line number
  */
 void add_f(stack_t **stack, unsigned int line_number)
 {
