@@ -28,7 +28,7 @@ void ext(stack_t **stack)
 {
 	free(line);
 	free_stack(stack);
-	if (!fp)
+	if (fp)
 		fclose(fp);
 	exit(EXIT_FAILURE);
 }

@@ -15,6 +15,7 @@ void push_s(stack_t **stack, int n)
 		ext(stack);
 	}
 	new->n = n;
+	new->prev = NULL;
 
 	if (!(*stack))
 	{

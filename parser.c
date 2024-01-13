@@ -11,7 +11,6 @@ char *line;
  */
 void call_ins(char *token, int linenum, stack_t **stack, char **str)
 {
-
 	instruction_t instructions[] = {push, pall};
 	int len_i = sizeof(instructions) / sizeof(instruction_t);
 	short int is_ins = 0;
@@ -27,16 +26,19 @@ void call_ins(char *token, int linenum, stack_t **stack, char **str)
 			break;
 		}
 	}
-	if (!*str)
-		free(*str);
-
 	if (!is_ins)
 	{
 		fprintf(stderr, "L%d: unknown\
  instruction %s\n", linenum, token);
-
+		if (*str != NULL)
+			free(*str);
 		ext(stack);
 	}
+
+
+	if (*str)
+		free(*str);
+
 
 }
 
