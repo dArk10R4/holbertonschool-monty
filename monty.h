@@ -41,6 +41,7 @@ void pop_f(stack_t **stack, unsigned int line_number);
 void pop_s(stack_t **stack);
 void swap_f(stack_t **stack, unsigned int line_number);
 void add_f(stack_t **stack, unsigned int line_number);
+void nop_f(stack_t **stack, unsigned int line_number);
 
 #ifdef LINE
 char *line = NULL;
